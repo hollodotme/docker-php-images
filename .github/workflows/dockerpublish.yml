@@ -46,11 +46,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build image
-        run: docker build --pull -f ./${{ matrix.folder }}/${{ matrix.php-version }}/Dockerfile -t ${{ matrix.image-name }} ./${{ matrix.folder }}/${{ matrix.php-version }}
-
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+
+      - name: Pull image for cache
+        run: docker pull docker.pkg.github.com/${{ github.repository }}/${{ matrix.image-name }}:latest || true
+
+      - name: Build image
+        run: docker build --pull -f ./${{ matrix.folder }}/${{ matrix.php-version }}/Dockerfile -t ${{ matrix.image-name }} ./${{ matrix.folder }}/${{ matrix.php-version }}
 
       - name: Push image
         run: |
