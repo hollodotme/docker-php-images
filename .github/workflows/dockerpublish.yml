@@ -21,26 +21,26 @@ jobs:
     strategy:
       matrix:
         include:
-          - readis-php: 7.1
-            folder: readis
-            php-version: 7.1
-            image-name: readis-php-71
-          - readis-php: 7.2
-            folder: readis
-            php-version: 7.2
-            image-name: readis-php-72
-          - readis-php: 7.3
-            folder: readis
-            php-version: 7.3
-            image-name: readis-php-73
-          - readis-php: 7.4
-            folder: readis
-            php-version: 7.4
-            image-name: readis-php-74
-          - readis-php: 8.0
-            folder: readis
-            php-version: 8.0
-            image-name: readis-php-80
+          - readis-php: "7.1"
+            folder: "readis"
+            php-version: "7.1"
+            image-name: "readis-php-71"
+          - readis-php: "7.2"
+            folder: "readis"
+            php-version: "7.2"
+            image-name: "readis-php-72"
+          - readis-php: "7.3"
+            folder: "readis"
+            php-version: "7.3"
+            image-name: "readis-php-73"
+          - readis-php: "7.4"
+            folder: "readis"
+            php-version: "7.4"
+            image-name: "readis-php-74"
+          - readis-php: "8.0"
+            folder: "readis"
+            php-version: "8.0"
+            image-name: "readis-php-80"
 
     runs-on: ubuntu-latest
     steps:
