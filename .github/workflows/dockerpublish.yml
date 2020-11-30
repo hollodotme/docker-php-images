@@ -16,23 +16,45 @@ on:
   schedule:
     - cron: '0 6 * * *'
 
-env:
-  IMAGE_NAME: backend-web
-
 jobs:
   push:
+    strategy:
+      matrix:
+        include:
+          - readis-php: 7.1
+            folder: readis
+            php-version: 7.1
+            image-name: readis-php-71
+          - readis-php: 7.2
+            folder: readis
+            php-version: 7.2
+            image-name: readis-php-72
+          - readis-php: 7.3
+            folder: readis
+            php-version: 7.3
+            image-name: readis-php-73
+          - readis-php: 7.4
+            folder: readis
+            php-version: 7.4
+            image-name: readis-php-74
+          - readis-php: 8.0
+            folder: readis
+            php-version: 8.0
+            image-name: readis-php-80
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build --pull -f .docker/Dockerfile -t $IMAGE_NAME ./.docker
+        run: docker build --pull -f ./${{ matrix.folder }}/${{ matrix.php-version }}/Dockerfile -t ${{ matrix.image-name }} ./${{ matrix.folder }}/${{ matrix.php-version }}
 
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
       - name: Push image
         run: |
+          IMAGE_NAME=${{ matrix.image-name }}
           IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
 
           # Change all uppercase to lowercase

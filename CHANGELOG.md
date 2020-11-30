@@ -1,14 +1,7 @@
 # CHANGELOG
 
-## [1.1.0] - 2020-11-24
+## [1.0.0] - 2020-11-30
 
-* Removed `git` from installed tools in image
-* Add cleanup for redis extension source code
-* Add Makefile for build and pushing
+* Added readis images from PHP 7.1 to 8.0
 
-## [1.0.0] - 2020-11-13
-
-First stable release.
-
-[1.1.0]: https://github.com/from-home-de/docker-backend-web/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/from-home-de/docker-backend-web/tree/v1.0.0
+[1.0.0]: https://github.com/hollodotme/docker-php-images/tree/v1.0.0

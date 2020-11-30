@@ -2,11 +2,11 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via pull requests on [GitHub](http://github.com/from-home-de/docker-backend-web).
+We accept contributions via pull requests on [GitHub](http://github.com/hollodotme/docker-php-images).
 
 ## Issues
 
-- Please report issues here on [GitHub](http://github.com/from-home-de/docker-backend-web/issues)
+- Please report issues here on [GitHub](http://github.com/hollodotme/docker-php-images/issues)
 
 ## Pull Requests
 

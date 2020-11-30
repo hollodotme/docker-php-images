@@ -1,16 +1,35 @@
-# docker-backend-web
+# docker-php-images
 
-Docker image for web service in backend application.
+Various PHP docker images for my projects
 
-This docker image is built on a daily basis via GitHub actions. 
+## re<sup>a</sup>dis images
 
-## Features
+* docker.pkg.github.com/hollodotme/docker-php-images/readis-php-71
+* docker.pkg.github.com/hollodotme/docker-php-images/readis-php-72
+* docker.pkg.github.com/hollodotme/docker-php-images/readis-php-73
+* docker.pkg.github.com/hollodotme/docker-php-images/readis-php-74
+* docker.pkg.github.com/hollodotme/docker-php-images/readis-php-80
 
-* PHP 8 RC4 FPM
-* Intl extension
-* OPCache extension & config
-* [Redis extension](https://github.com/phpredis/phpredis)
-* PDO MySQL & PGSQL
+### Includes
+
+* PHP-FPM
+* Xdebug
+* Intl-Extension
+* Redis-Extension
+
+#### Build for development
+
+```bash
+make build-readis
+```
+
+#### Push dev version to GitHub
+
+This will push a :0.0.0-dev version to the GitHub package registry
+
+```bash
+make push-readis
+```
 
 ## Usage
 
@@ -19,22 +38,8 @@ In a `docker-compose.yml`:
 ```yml
 services:
   web:
-    image: "docker.pkg.github.com/from-home-de/docker-backend-web/backend-web"
+    image: "docker.pkg.github.com/hollodotme/docker-php-images/<image-name><:tag>"
     volumes:
       - "./:/repo"
     restart: "on-failure"
-```
-
-## Building for development
-
-```bash
-make build
-```
-
-## Pushing the development version to GitHub
-
-This will push a :0.0.0-dev version to the GitHub package registry
-
-```bash
-make push
 ```
