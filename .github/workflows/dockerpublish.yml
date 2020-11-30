@@ -50,7 +50,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Log into registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login $DOCKER_REGISTRY -u ${{ github.actor }} --password-stdin
+        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login $DOCKER_REGISTRY -u ${{ github.actor }} --password-stdin
 
       - name: Build image
         run: docker build --pull -f ./${{ matrix.folder }}/${{ matrix.php-version }}/Dockerfile -t ${{ matrix.image-name }} ./${{ matrix.folder }}/${{ matrix.php-version }}
