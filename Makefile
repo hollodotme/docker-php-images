@@ -1,4 +1,4 @@
-PACKAGE_NAME = docker.pkg.github.com/hollodotme/docker-php-images
+PACKAGE_NAME = ghcr.io/hollodotme
 DEV_TAG = 0.0.0-dev
 
 build-readis: build-readis-php-71 build-readis-php-72 build-readis-php-73 build-readis-php-74 build-readis-php-80
