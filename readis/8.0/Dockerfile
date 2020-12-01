@@ -1,4 +1,4 @@
-FROM php:8.0-fpm-alpine
+FROM amd64/php:8.0-fpm-alpine
 ARG XDEBUG_VERSION="3.0.0"
 ARG PHPREDIS_VERSION="5.3.2"
 RUN set -ex \
