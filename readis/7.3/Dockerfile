@@ -1,6 +1,6 @@
 FROM php:7.3-fpm-alpine
-ARG XDEBUG_VERSION="3.0.0"
-ARG PHPREDIS_VERSION="5.3.2"
+ARG XDEBUG_VERSION="3.0.4"
+ARG PHPREDIS_VERSION="5.3.4"
 RUN set -ex \
 	&& apk update \
 	&& apk upgrade --available \
